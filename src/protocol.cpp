@@ -374,7 +374,7 @@ Query_event *proto_query_event(std::istream &is, Log_event_header *header)
   */
 
   query_len= header->event_length - (LOG_EVENT_HEADER_SIZE + 13 + var_size +
-                                     db_name_len - 4);
+                                     db_name_len + 4);
 
   qev->variables.reserve(var_size);
   Protocol_chunk_vector proto_payload(qev->variables, var_size);
